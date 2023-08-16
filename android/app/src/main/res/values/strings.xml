@@ -1,0 +1,4 @@
+<resources>
+    <string name="background_image">background image</string>
+    <string name="launch_icon">launch icon</string>
+</resources>

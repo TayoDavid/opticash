@@ -9,6 +9,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  cupertino_icons:
+  dio:
+  pretty_dio_logger:
+  flutter_svg:
+  jiffy:
+  stacked:
+  get_it:
 
 dev_dependencies:
   flutter_test:

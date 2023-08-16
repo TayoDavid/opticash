@@ -1,0 +1,19 @@
+POST https://devapi.opticash.io/api/v1/user/test/register HTTP/1.1
+Content-Type: application/json
+
+{
+    "first_name": "Ade",
+    "last_name": "Muyiwa",
+    "email": "me@muyi",
+    "password": "Password"
+}
+
+###
+
+POST https://devapi.opticash.io/api/v1/user/test/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "me@muyi",
+    "password": "Password"
+}
