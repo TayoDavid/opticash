@@ -26,20 +26,40 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+  assets:
+    - assets/svg/
+    - assets/images/
+
   fonts:
     - family: Rogerex
       fonts:
-        - asset: assets/fonts/RogerexRegular.ttf          
-        - asset: assets/fonts/RogerexMedium.ttf
+        - asset: assets/fonts/rogerex/RogerexRegular.ttf          
+        - asset: assets/fonts/rogerex/RogerexMedium.ttf
           weight: 400
-        - asset: assets/fonts/RogerexSemiBold.ttf
+        - asset: assets/fonts/rogerex/RogerexSemiBold.ttf
           weight: 500
-        - asset: assets/fonts/RogerexBold.ttf
+        - asset: assets/fonts/rogerex/RogerexBold.ttf
           weight: 600
-        - asset: assets/fonts/RogerexExtraBold.ttf
+        - asset: assets/fonts/rogerex/RogerexExtraBold.ttf
           weight: 700
-        - asset: assets/fonts/RogerexBlack.ttf
+        - asset: assets/fonts/rogerex/RogerexBlack.ttf
           weight: 800
-        - asset: assets/fonts/RogerexMax.ttf
+        - asset: assets/fonts/rogerex/RogerexMax.ttf
           weight: 900
 
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/poppins/PoppinsLight300.ttf          
+          weight: 400
+        - asset: assets/fonts/poppins/PoppinsRegular.ttf
+          weight: 400
+        - asset: assets/fonts/poppins/PoppinsMedium500.ttf
+          weight: 500
+        - asset: assets/fonts/poppins/PoppinsSemiBold600.ttf
+          weight: 600
+        - asset: assets/fonts/poppins/PoppinsBold700.ttf
+          weight: 700
+        - asset: assets/fonts/poppins/PoppinsExtraBold800.ttf
+          weight: 800
+        - asset: assets/fonts/poppins/PoppinsBlack900.ttf
+          weight: 900

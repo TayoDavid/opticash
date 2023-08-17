@@ -45,6 +45,7 @@ class AppButton extends StatelessWidget {
     this.isIconAfterText = false,
     this.shadowColor = Colors.transparent,
     double? elevation,
+    this.gradientColors = const [],
     this.isLoading = false,
   })  : buttonType = ButtonType.elevated,
         elevation = elevation ?? 1,
@@ -73,6 +74,7 @@ class AppButton extends StatelessWidget {
     this.shadowColor = Colors.transparent,
     this.borderRadius,
     this.isLoading = false,
+    this.gradientColors = const [],
   })  : buttonType = ButtonType.outline,
         backgroundColor = null,
         elevation = 0,
@@ -102,6 +104,7 @@ class AppButton extends StatelessWidget {
     this.shadowColor = Colors.transparent,
     this.borderRadius,
     this.isLoading = false,
+    this.gradientColors = const [],
   })  : buttonType = ButtonType.flat,
         elevation = 0,
         assert(text != null || icon != null);
@@ -200,6 +203,8 @@ class AppButton extends StatelessWidget {
 
   final bool disabled;
 
+  final List<Color> gradientColors;
+
   EdgeInsets get _padding => padding ?? EdgeInsets.symmetric(vertical: dense ? 8 : 6, horizontal: dense ? 16 : 5);
 
   /// Builds the row with the [Icon] and [Text] widget.
@@ -214,7 +219,7 @@ class AppButton extends StatelessWidget {
             child: Center(
               child: AppText(
                 text ?? "",
-                size: fontSize ?? 15,
+                size: fontSize ?? 16,
                 weight: weight ?? FontWeight.w600,
                 align: TextAlign.center,
                 color: foregroundColor ?? Colors.black,
@@ -290,14 +295,30 @@ class AppButton extends StatelessWidget {
         return ElevatedButton(
           onPressed: isLoading ? () {} : () => {HapticFeedback.lightImpact(), disabled ? () {} : onTap()},
           style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5),
+            ),
+            padding: EdgeInsets.zero,
             minimumSize: Size(width ?? double.infinity, height ?? 56),
             elevation: elevation,
             foregroundColor: foregroundColor ?? Colors.white,
-            backgroundColor: disabled ? Colors.grey : (backgroundColor ?? Colors.black),
+            backgroundColor: disabled
+                ? Colors.grey
+                : gradientColors.isEmpty
+                    ? (backgroundColor ?? Colors.black)
+                    : Colors.transparent,
             shadowColor: shadowColor,
           ),
-          child: _buildContent(),
+          child: gradientColors.isEmpty
+              ? _buildContent()
+              : Ink(
+                  height: height ?? 56,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    gradient: LinearGradient(colors: gradientColors),
+                  ),
+                  child: _buildContent(),
+                ),
         );
     }
   }

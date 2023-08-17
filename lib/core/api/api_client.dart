@@ -31,7 +31,8 @@ class ApiClient {
     Map<String, dynamic>? data,
   }) async {
     try {
-      final response = await _dio.request(endpoint, data: data, queryParameters: param);
+      final response =
+          await _dio.request(endpoint, data: data, queryParameters: param);
       return {
         'success': successCodes.containsKey(response.statusCode),
         'data': response.data,

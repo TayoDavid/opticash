@@ -10,6 +10,7 @@ class AppText extends StatelessWidget {
     this.weight,
     this.spacing,
     this.height,
+    this.family,
     this.maxLines,
     this.overflow,
   }) : super(key: key);
@@ -23,6 +24,7 @@ class AppText extends StatelessWidget {
   final double? height;
   final int? maxLines;
   final TextOverflow? overflow;
+  final String? family;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class AppText extends StatelessWidget {
         fontSize: size ?? 16,
         letterSpacing: spacing,
         color: color ?? Colors.black,
-        fontFamily: "General Sans",
+        fontFamily: family ?? "Rogerex",
         fontWeight: weight ?? FontWeight.w400,
       ),
     );

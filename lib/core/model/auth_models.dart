@@ -1,10 +1,10 @@
-class SignUpModel {
+class UserModel {
   String firstname;
   String lastname;
   String email;
   String password;
 
-  SignUpModel({
+  UserModel({
     required this.firstname,
     required this.lastname,
     required this.email,
