@@ -8,19 +8,37 @@ class AppTextField extends StatelessWidget {
     required this.label,
     this.hint,
     this.suffix,
+    this.validate,
+    this.onChanged,
+    this.focusNode,
     this.obscureText = false,
+    this.type,
+    this.action,
+    this.onFieldSubmitted,
   });
   final TextEditingController? controller;
   final String label;
   final String? hint;
   final Widget? suffix;
   final bool obscureText;
+  final String? Function(String?)? validate;
+  final void Function(String?)? onChanged;
+  final TextInputType? type;
+  final TextInputAction? action;
+  final void Function(String)? onFieldSubmitted;
+  final FocusNode? focusNode;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      focusNode: focusNode,
       controller: controller,
       obscureText: obscureText,
+      validator: validate,
+      onChanged: onChanged,
+      keyboardType: type,
+      textInputAction: action,
+      onFieldSubmitted: onFieldSubmitted,
       decoration: InputDecoration(
         label: Container(
           margin: EdgeInsets.zero,
@@ -38,6 +56,7 @@ class AppTextField extends StatelessWidget {
         ),
         suffixIcon: suffix,
         hintText: hint,
+        suffixIconColor: Color(0xff9e9e9e),
         hintStyle: TextStyle(color: Color(0xFF9E9E9E), fontSize: 14),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         floatingLabelStyle: TextStyle(),

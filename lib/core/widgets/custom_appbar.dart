@@ -10,8 +10,12 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.bottom,
     this.leadingItem,
     this.hasLeading = false,
+    this.centerTitle = false,
     this.action,
     this.beforePop,
+    this.elevation,
+    this.titleWidget,
+    this.leadingItemWidth,
     this.bgColor = Colors.white,
   });
 
@@ -23,6 +27,10 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final PreferredSizeWidget? bottom;
   final VoidCallback? beforePop;
   final Color bgColor;
+  final double? leadingItemWidth;
+  final bool centerTitle;
+  final Widget? titleWidget;
+  final double? elevation;
 
   @override
   State<CustomAppBar> createState() => CustomAppBarState();
@@ -83,12 +91,12 @@ class CustomAppBarState extends State<CustomAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
       leading: leading,
-      leadingWidth: 52,
+      leadingWidth: widget.leadingItemWidth ?? 52,
       centerTitle: true,
-      title: _title,
+      title: widget.titleWidget ?? _title,
       automaticallyImplyLeading: false,
       bottom: widget.bottom,
-      elevation: 0,
+      elevation: widget.elevation ?? 0,
       foregroundColor: Colors.black,
       backgroundColor: widget.bgColor,
       actions: widget.action,

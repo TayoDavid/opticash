@@ -7,18 +7,16 @@ class AuthenticationService {
   ApiClient apiClient = locator<ApiClient>();
 
   Future<bool> register(UserModel body) async {
-    final response = await apiClient.request(
+    final response = await apiClient.post(
       Endpoints.register,
-      action: RequestAction.post,
       data: body.toJson(),
     );
     return response["success"];
   }
 
   Future<Map<String, dynamic>> login(LoginModel body) async {
-    final response = await apiClient.request(
+    final response = await apiClient.post(
       Endpoints.login,
-      action: RequestAction.post,
       data: body.toJson(),
     );
     return response;

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:opticash/core/api/endpoints.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class ApiClient {
@@ -6,7 +7,7 @@ class ApiClient {
 
   ApiClient() {
     final dioOptions = BaseOptions(
-      baseUrl: "",
+      baseUrl: Endpoints.baseUrl,
       responseType: ResponseType.json,
     );
 
@@ -24,15 +25,13 @@ class ApiClient {
     _dio.interceptors.add(logInterceptor);
   }
 
-  Future<Map<String, dynamic>> request(
+  Future<Map<String, dynamic>> post(
     String endpoint, {
-    RequestAction? action,
     Map<String, dynamic>? param,
     Map<String, dynamic>? data,
   }) async {
     try {
-      final response =
-          await _dio.request(endpoint, data: data, queryParameters: param);
+      final response = await _dio.post(endpoint, data: data, queryParameters: param);
       return {
         'success': successCodes.containsKey(response.statusCode),
         'data': response.data,
@@ -43,8 +42,6 @@ class ApiClient {
     }
   }
 }
-
-enum RequestAction { get, post }
 
 const successCodes = <int, String>{
   200: "OK",

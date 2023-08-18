@@ -17,6 +17,8 @@ dependencies:
   jiffy:
   stacked:
   get_it:
+  bloc:
+  flutter_bloc:
 
 dev_dependencies:
   flutter_test:

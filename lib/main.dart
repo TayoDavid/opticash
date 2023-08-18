@@ -5,9 +5,11 @@ import 'package:opticash/features/views/authentication/sign_in_screen.dart';
 import 'package:opticash/features/views/authentication/sign_up_screen.dart';
 import 'package:opticash/features/views/home/home_screen.dart';
 import 'package:opticash/features/views/onboarding/onboarding_screen.dart';
+import 'package:opticash/global_provider.dart';
 
 void main() {
-  runApp(const MainApp());
+  final app = GlobalProvider(child: const MainApp());
+  runApp(app);
 }
 
 class MainApp extends StatefulWidget {
@@ -36,7 +38,7 @@ class _MainAppState extends State<MainApp> {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: OnboardingScreen.route,
+      initialRoute: HomeScreen.route,
       routes: {
         OnboardingScreen.route: (context) => OnboardingScreen(),
         SignInScreen.route: (context) => SignInScreen(),
