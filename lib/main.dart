@@ -38,7 +38,7 @@ class _MainAppState extends State<MainApp> {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: HomeScreen.route,
+      initialRoute: OnboardingScreen.route,
       routes: {
         OnboardingScreen.route: (context) => OnboardingScreen(),
         SignInScreen.route: (context) => SignInScreen(),
